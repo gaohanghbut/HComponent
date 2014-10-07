@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<components xmlns="http://hang.cn/schema/components"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:context="http://hang.cn/schema/context">
+	 xsi:schemaLocation="">
+    <!--
+	<component name="dao" class="cn.hang.spring.test.TestDao">
+        <dependency name="name" value="tom"></dependency>
+	</component>
+    <component name="service" class="cn.hang.spring.test.TestServiceImpl">
+        <dependency name="testDao" value="dao"></dependency>
+	</component>
+	-->
+
+    <context:definition src="classpath:db.xml"/>
+
+    <component name="jdbc" class="cn.hang.jdbc.configurable.ConfigurableSimpleJdbc"></component>
+
+    <!--<component name="dataSource" class="cn.hang.jdbc.datasource.DriverManagerDataSource">-->
+        <!--<dependency name="driverClassName" value="com.mysql.jdbc.Driver"></dependency>-->
+        <!--<dependency name="url" value="jdbc:mysql://localhost:3306/quan"></dependency>-->
+        <!--<dependency name="username" value="root"></dependency>-->
+        <!--<dependency name="password" value="root"></dependency>-->
+    <!--</component>-->
+
+    <component name="namedJdbc" class="cn.hang.jdbc.configurable.ConfigurableNamedJdbc"></component>
+
+    <component name="dataSource" class="cn.hang.jdbc.datasource.DriverManagerDataSource">
+        <dependency name="driverClassName" value="com.mysql.jdbc.Driver"></dependency>
+        <dependency name="url" value="jdbc:mysql://localhost:3306/quan"></dependency>
+        <dependency name="username" value="root"></dependency>
+        <dependency name="password" value="root"></dependency>
+    </component>
+
+    <!--<component name="namedJdbc" class="cn.hang.jdbc.simple.NamedJdbc">-->
+        <!--<dependency name="dataSource">-->
+            <!--<component name="dataSource" class="cn.hang.jdbc.datasource.DriverManagerDataSource">-->
+                <!--<dependency name="driverClassName" value="com.mysql.jdbc.Driver"></dependency>-->
+                <!--<dependency name="url" value="jdbc:mysql://localhost:3306/quan"></dependency>-->
+                <!--<dependency name="username" value="root"></dependency>-->
+                <!--<dependency name="password" value="root"></dependency>-->
+            <!--</component>-->
+        <!--</dependency>-->
+    <!--</component>-->
+
+    <component name="service" class="cn.hang.spring.test.TestServiceImpl">
+        <dependency name="testDao">
+            <component name="dao" class="cn.hang.spring.test.TestDao">
+                <dependency name="name" value="tom"></dependency>
+            </component>
+        </dependency>
+    </component>
+
+    <component name="listTest" class="cn.hang.spring.test.ListTest">
+        <dependency name="list">
+            <list>
+                <element value="123"></element>
+                <element value="321"></element>
+                <element value="323"></element>
+                <element value="176"></element>
+            </list>
+        </dependency>
+    </component>
+
+
+    <!--
+    <component name="service" class="cn.hang.spring.test.TestServiceImpl">
+        <dependency name="testDao">
+            <list>
+                <element value="" ref=""></element>
+            </list>
+
+            <map>
+                <entry key="" value="" ref=""></entry>
+            </map>
+
+            <component></component>
+        </dependency>
+	</component>
+    -->
+</components>

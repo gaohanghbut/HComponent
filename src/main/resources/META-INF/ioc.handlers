@@ -1,0 +1,3 @@
+http\://hang.cn/schema/components=cn.hang.ioc.xml.ComponentsNamespaceHandler
+http\://hang.cn/schema/jdbc=cn.hang.jdbc.xml.JdbcNamespaceHandler
+http\://hang.cn/schema/context=cn.hang.context.xml.ComtextNamespaceHandler

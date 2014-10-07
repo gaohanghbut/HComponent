@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jdbc xmlns="http://hang.cn/schema/jdbc"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="">
+    <sql-loader>
+        <sql name="count" mapping="">
+            select count(*) from user
+        </sql>
+    </sql-loader>
+</jdbc>
