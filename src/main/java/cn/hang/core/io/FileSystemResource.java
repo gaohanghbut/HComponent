@@ -11,7 +11,7 @@ public class FileSystemResource extends AbstractResource {
     }
 
     @Override
-    public InputStream getInputStream() throws ResourceLoadException {
+    public InputStream openStream() throws ResourceLoadException {
         return Streams.openFile(getName());
     }
 }

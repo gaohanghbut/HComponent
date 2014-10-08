@@ -13,7 +13,7 @@ public class URLResource extends AbstractResource {
     }
 
     @Override
-    public InputStream getInputStream() throws ResourceLoadException {
+    public InputStream openStream() throws ResourceLoadException {
         try {
             return new URL(getName()).openStream();
         } catch (IOException e) {

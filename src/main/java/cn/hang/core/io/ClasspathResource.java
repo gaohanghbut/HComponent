@@ -23,7 +23,7 @@ public class ClasspathResource extends AbstractResource {
     }
 
     @Override
-    public InputStream getInputStream() throws ResourceLoadException {
+    public InputStream openStream() throws ResourceLoadException {
         return classloader.getResourceAsStream(resourceName);
     }
 }

@@ -26,7 +26,7 @@ public final class XmlComponentHolders {
         Preconditions.checkNotNull(path);
         return new XmlComponentHolder(new InputStreamProvider() {
             @Override
-            public InputStream openStrem() {
+            public InputStream openStream() {
                 return Thread.currentThread().getContextClassLoader().getResourceAsStream(path);
             }
         });
@@ -42,7 +42,7 @@ public final class XmlComponentHolders {
         Preconditions.checkNotNull(path);
         return new XmlComponentHolder(new InputStreamProvider() {
             @Override
-            public InputStream openStrem() {
+            public InputStream openStream() {
                 try {
                     return new FileInputStream(path);
                 } catch (FileNotFoundException e) {

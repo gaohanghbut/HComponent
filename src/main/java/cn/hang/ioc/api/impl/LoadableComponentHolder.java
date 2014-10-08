@@ -24,7 +24,7 @@ public abstract class LoadableComponentHolder extends ComponentHolderImpl {
         if (ComponentDefinition.ComponentType.RESOURCE.equals(beanDefinition.getComponentType())) {
             loadComponentDefinitions(new InputStreamProvider() {
                 @Override
-                public InputStream openStrem() {
+                public InputStream openStream() {
                     return ResourceLoaders.DEFAULT_RESOURCElOADER.loadResource(beanDefinition.getName()).getInputStream();
                 }
             });

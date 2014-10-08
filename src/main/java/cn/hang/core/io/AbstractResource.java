@@ -3,12 +3,9 @@ package cn.hang.core.io;
 import cn.hang.core.util.CloseableIterable;
 import cn.hang.core.util.Closer;
 import cn.hang.core.util.Joiners;
-import com.google.common.base.Joiner;
 import com.google.common.io.*;
 
 import java.io.*;
-import java.nio.charset.Charset;
-import java.util.BitSet;
 import java.util.Iterator;
 
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -31,7 +28,7 @@ public abstract class AbstractResource implements Resource {
 
     @Override
     public Reader getReader() throws ResourceLoadException {
-        return new InputStreamReader(getInputStream());
+        return new InputStreamReader(openStream());
     }
 
     @Override
@@ -45,7 +42,7 @@ public abstract class AbstractResource implements Resource {
     public byte[] asByteArray() throws ResourceLoadException {
         final ByteArrayOutputStream out = new ByteArrayOutputStream();
         try {
-            return ByteStreams.readBytes(new BufferedInputStream(getInputStream()), new ByteProcessor<byte[]>() {
+            return ByteStreams.readBytes(new BufferedInputStream(openStream()), new ByteProcessor<byte[]>() {
 
                 @Override
                 public boolean processBytes(byte[] buf, int off, int len) throws IOException {

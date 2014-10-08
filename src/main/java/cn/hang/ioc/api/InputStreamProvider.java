@@ -13,5 +13,5 @@ public interface InputStreamProvider {
      *
      * @return 非空输入流
      */
-    InputStream openStrem();
+    InputStream openStream();
 }

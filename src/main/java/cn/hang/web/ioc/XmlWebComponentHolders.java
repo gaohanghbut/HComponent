@@ -21,7 +21,7 @@ public final class XmlWebComponentHolders {
         return new XmlWebComponentHolder(new InputStreamProvider() {
 
             @Override
-            public InputStream openStrem() {
+            public InputStream openStream() {
                 return resource.getInputStream();
             }
         }, servletContext);

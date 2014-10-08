@@ -1,6 +1,7 @@
 package cn.hang.core.io;
 
 import cn.hang.core.util.CloseableIterable;
+import cn.hang.ioc.api.InputStreamProvider;
 import com.google.common.base.Function;
 import com.google.common.io.LineProcessor;
 
@@ -11,20 +12,13 @@ import java.nio.charset.Charset;
 /**
  * Created by hang.gao on 2014/9/1.
  */
-public interface Resource {
+public interface Resource extends InputStreamProvider {
 
     /**
      * 资源名
      * @return
      */
     String getName();
-
-    /**
-     * 获取输入流
-     * @return
-     * @throws ResourceLoadException
-     */
-    InputStream getInputStream() throws ResourceLoadException;
 
     /**
      * 获取Reader
