@@ -33,8 +33,12 @@ public abstract class AbstractResource implements Resource {
 
     @Override
     public String asText() throws ResourceLoadException {
-        try (CloseableIterable<String> iterable = forLines()) {
+        CloseableIterable<String> iterable = null;
+        try {
+            iterable = forLines();
             return Joiners.SWITCH_LINE.join(iterable);
+        } finally {
+            Closer.close(iterable);
         }
     }
 
