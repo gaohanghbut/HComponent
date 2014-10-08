@@ -22,7 +22,7 @@ public final class XmlWebComponentHolders {
 
             @Override
             public InputStream openStream() {
-                return resource.getInputStream();
+                return resource.openStream();
             }
         }, servletContext);
     }

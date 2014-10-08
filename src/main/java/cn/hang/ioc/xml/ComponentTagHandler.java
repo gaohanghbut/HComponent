@@ -116,8 +116,8 @@ public class ComponentTagHandler implements TagHandler {
         }
         beanDefinition.setName(name);
         // 抽取配置的依赖
-        List<ComponentDependency> properties = extractDependencies(element, beanDefinition, registry);
-        beanDefinition.setDependencies(properties);
+        List<ComponentDependency> props = extractDependencies(element, beanDefinition, registry);
+        beanDefinition.setDependencies(props);
         // 注册bean
         registry.regist(name, beanDefinition);
         return beanDefinition;
